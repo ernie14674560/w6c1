@@ -8,7 +8,7 @@ def analysis(file, user_id):
     times = 0
     minutes = 0
     try:
-        pd.read_json(file, orient='value') as df:
+        df = pd.read_json(file, orient='value')
         times = len(df[df['user_id'] == user_id].index)
         minutes = sum(df[df['user_id'] == user_id].minutes)
         return times, minutes
